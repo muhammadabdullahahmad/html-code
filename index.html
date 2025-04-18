@@ -1,65 +1,153 @@
 <!DOCTYPE html>
-<html></html>
-<head></head>
-<title>book club</title>
-<head></head>
-<body></body>
-<div class="grid-container">
-<header>
-<h1>the national school book club</h1>
-<img src="books.avif"alt="list fo books " width="300">
-</header>
+<html lang="en">
 
-<ul>
-    <li><a href="https://www.google.com/">google</a></li>
-<li><a href="
-https://youtube.com/">youtube</a></li>
-<li><a href="reading groups">reading groups</a></li>
-<li><a href="contact us">contact us</a></li>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Layout</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      overflow-x: hidden;
+    }
 
+    .sidebar {
+      width: 200px;
+      height: 100vh;
+      position: fixed;
+      top: 56px;
+      left: 0;
+      background-color: #f8f9fa;
+      padding-top: 1rem;
+    }
 
-</ul>
+    .main-content {
+      margin-left: 200px;
+      padding: 1rem;
+      margin-top: px;
+    }
 
-<h2>welcome to the national school book club
-<p>the national school book club is having alot of books
-<h2>meet our teachers</h2>
-<img src="teacher.jpg"alt="list of books"width="300">
-<h3>ms emma </h3>
-    <p>she teach in high school and has a degree coding</p>
-    <h2>book reviews</h2>
-    <h3>pinnochio</h3>
-    <p><strong>admit=:</strong><q> i loved reading this book .a must read everyone.</q></p>
-<table>
-    <tr>
-        <th>monday</th>
-        <td>11pm-3pm</td>
-    </tr>
-    
-        <tr>
-            <th>tuesday</th>
-            <td>11pm-3pm</td>
-        </tr>
-<tr>
-    <th>wednesday</th>
-    <td>11pm-3pm</td>
-</tr>
-<tr>
-    <th>thursday</th>
-    <td>11pm-3pm</td>
-</tr>
-    <tr>
-        <th>friday</th>
-        <td>11pm-3pm</td>
-    </tr>
-<tr>
-    <th>saturday</th>
-    <td>11pm-3pm</td>
-</tr>
-</table>
-<div id="best sellers">
-    <h2>best sellers </h2>
-    <ol>
-        <li><b>charlie and the chocolate factory</b>by<em>roald dahl </em> </li>
-        <li><b>the cat in the hat</b> b<em>dr seuss</em> </li>
-        <li><b> the little prince</b>by<em>atoine de saint</em></li>
-        </ol>
+    .video-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">YouTube</a>
+      <form class="d-flex mx-auto" style="width: 50%;">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary" type="submit">Search</button>
+      </form>
+      <div>
+        <img src="favicon.ico" alt="Profile" class="rounded-circle">
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <ul class="nav flex-column">
+      <li class="nav-item"><a class="nav-link" href="#">🏠 Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">📺 Subscriptions</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">📚 Library</a></li>
+    </ul>
+  </div>
+  <!-- Main Content -->
+  <div class="main-content">
+    <h4 class="mb-3">🏏 IPL 2025 Match Highlights</h4>
+    <div class="d-flex overflow-auto gap-4 p-2">
+      <!-- IPL Match 1 -->
+      <div class="video-card" style="min-width: 320px;">
+        <div class="ratio ratio-16x9">
+          <iframe src="https://www.youtube.com/embed/ANvLp0MR1q8?si=K5vLzbBLXAzCJtxl"
+            title="rcb vs KKR - Match Highlights" allowfullscreen></iframe>
+        </div>
+        <h6 class="mt-2">RCB vs KKR - Match Highlights</h6>
+        <p class="text-muted">IPL 2025 • 1.2M views • 2 days ago</p>
+      </div>
+
+      <!-- IPL Match 2 -->
+      <div class="video-card" style="min-width: 320px;">
+        <div class="ratio ratio-16x9">
+          <iframe src="https://www.youtube.com/embed/iYkuoMhXzhg?si=W6FcMW4k101uX1KV" title="srh vs RR - Full Match"
+            allowfullscreen></iframe>
+        </div>
+        <h6 class="mt-2">SRH vs KKR - Full Match</h6>
+        <p class="text-muted">IPL 2025 • 980K views • 3 days ago</p>
+      </div>
+
+      <!-- IPL Match 3 -->
+      <div class="video-card" style="min-width: 320px;">
+        <div class="ratio ratio-16x9">
+          <iframe src="https://www.youtube.com/embed/i_JWdG4JorA?si=NYQocL6nec4af7IV"
+            title="mi vs csk - Thrilling Finish" allowfullscreen></iframe>
+        </div>
+        <h6 class="mt-2">mi vs csk - Thrilling Finish</h6>
+        <p class="text-muted">IPL 2025 • 1.5M views • 1 day ago</p>
+      </div>
+      <!-- IPL Match 4-->
+      <div class="video-card" style="min-width: 320px;">
+        <div class="ratio ratio-16x9">
+          <iframe src="https://www.youtube.com/embed/DQcORJthKHI?si=ZI_-K9Gq5tm4xzD_"
+            title="mi vs csk - Thrilling Finish" allowfullscreen></iframe>
+        </div>
+        <h6 class="mt-2">delhi vs lucknow - Thrilling Finish</h6>
+        <p class="text-muted">IPL 2025 • 1.5M views • 1 day ago</p>
+      </div>
+    </div>
+  </div>
+
+    <!-- Main Content 1 -->
+    <div class="main-content">
+      <div class="d-flex overflow-auto gap-4 p-2">
+        <!-- IPL Match 1 -->
+        <div class="video-card" style="min-width: 320px;">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/qluLaAY4xSs?si=d4UFw-FXNgdUyh4M"
+              title="rcb vs KKR - Match Highlights" allowfullscreen></iframe>
+          </div>
+          <h6 class="mt-2">pbks vs gt - Match Highlights</h6>
+          <p class="text-muted">IPL 2025 • 1.2M views • 2 days ago</p>
+        </div>
+
+        <!-- IPL Match 2 -->
+        <div class="video-card" style="min-width: 320px;">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/dISSE_BeHtA?si=OOBRvCjyxtEBcEI9" title="srh vs RR - Full Match"
+              allowfullscreen></iframe>
+          </div>
+          <h6 class="mt-2">RR vs KKR - Full Match</h6>
+          <p class="text-muted">IPL 2025 • 980K views • 3 days ago</p>
+        </div>
+
+        <!-- IPL Match 3 -->
+        <div class="video-card" style="min-width: 320px;">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/bUSzuO4kDP4?si=_aEJYu0Cy56Hh4mx"
+              title="mi vs csk - Thrilling Finish" allowfullscreen></iframe>
+          </div>
+          <h6 class="mt-2">srh vs lsg - Thrilling Finish</h6>
+          <p class="text-muted">IPL 2025 • 1.5M views • 1 day ago</p>
+        </div>
+        <!-- IPL Match 4-->
+        <div class="video-card" style="min-width: 320px;">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/X0bjgfXxdkQ?si=wQgCwUT8jFHZ6zhy"
+              title="mi vs csk - Thrilling Finish" allowfullscreen></iframe>
+          </div>
+          <h6 class="mt-2">RCB vs CSK - Thrilling Finish"</h6>
+          <p class="text-muted">IPL 2025 • 1.5M views • 1 day ago</p>
+        </div>
+      </div>
+    </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
