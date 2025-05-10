@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interactive Solar System</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    .description {
+      max-width: 800px;
+      margin: 30px auto;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    .planet-list {
+      max-width: 800px;
+      margin: 20px auto;
+    }
+
+    .planet {
+      background-color: #1c3b57;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .planet:hover {
+      background-color: #296b8f;
+    }
+
+    .planet-details {
+      display: none;
+      padding-top: 10px;
+      font-size: 0.95em;
+      color: #d0eaff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌌 Our Solar System</h1>
+  </header>
+
+  <div class="description" id="description"></div>
+
+  <div class="planet-list" id="planetList"></div>
+
+  <script>
+    // Solar system description
+    const descriptionText = `
+      The Solar System is a collection of celestial bodies orbiting our star, the Sun. 
+      It consists of eight planets, their moons, dwarf planets, comets, asteroids, and other space objects.
+      The planets are divided into inner rocky planets and outer gas giants. Explore each planet below!
+    `;
+    document.getElementById('description').innerHTML = `<p>${descriptionText}</p>`;
+
+    // Planet data
+    const planets = [
+      { name: 'Mercury', details: 'The smallest planet and closest to the Sun.' },
+      { name: 'Venus', details: 'Similar in size to Earth but with a toxic atmosphere.' },
+      { name: 'Earth', details: 'Our home planet, the only one known to support life.' },
+      { name: 'Mars', details: 'Known as the Red Planet, a candidate for future exploration.' },
+      { name: 'Jupiter', details: 'The largest planet with a Great Red Spot storm.' },
+      { name: 'Saturn', details: 'Famous for its beautiful ring system.' },
+      { name: 'Uranus', details: 'A gas giant with a bluish color due to methane.' },
+      { name: 'Neptune', details: 'A cold, blue planet with strong winds and storms.' },
+    ];
+
+    const planetList = document.getElementById('planetList');
+
+    planets.forEach(planet => {
+      const planetDiv = document.createElement('div');
+      planetDiv.className = 'planet';
+      planetDiv.innerHTML = `<strong>${planet.name}</strong><div class="planet-details">${planet.details}</div>`;
+
+      planetDiv.addEventListener('click', () => {
+        const details = planetDiv.querySelector('.planet-details');
+        details.style.display = details.style.display === 'block' ? 'none' : 'block';
+      });
+
+      planetList.appendChild(planetDiv);
+    });
+  </script>
+</body>
+</html>
