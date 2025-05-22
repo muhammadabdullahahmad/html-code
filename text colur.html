@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Color Changer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        #myElement {
+            border: 2px solid #3498db;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .button-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 600;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        #changeColorBtn {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        #changeColorBtn:hover {
+            background-color: #2980b9;
+        }
+        
+        #resetBtn {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        #resetBtn:hover {
+            background-color: #c0392b;
+        }
+        
+        #randomBtn {
+            background-color: #2ecc71;
+            color: white;
+        }
+        
+        #randomBtn:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <h2>Advanced Color Changer</h2>
+    <div id="myElement">Hello World!</div>
+    
+    <div class="button-container">
+        <button id="changeColorBtn" type="button">Change to Red</button>
+        <button id="randomBtn" type="button">Random Color</button>
+        <button id="resetBtn" type="button">Reset</button>
+    </div>
+
+    <script>
+        let element = document.getElementById('myElement');
+        let changeColorBtn = document.getElementById('changeColorBtn');
+        let randomBtn = document.getElementById('randomBtn');
+        let resetBtn = document.getElementById('resetBtn');
+        
+        // Store original styles
+        let originalStyles = {
+            color: window.getComputedStyle(element).color,
+            backgroundColor: window.getComputedStyle(element).backgroundColor,
+            borderColor: window.getComputedStyle(element).borderColor
+        };
+        
+        // Change to red
+        changeColorBtn.addEventListener('click', () => {
+            element.style.color = "#FF0000";
+            element.style.backgroundColor = "#FFEEEE";
+            element.style.borderColor = "#FF0000";
+            element.textContent = "Color changed to red!";
+        });
+        
+        // Random color
+        randomBtn.addEventListener('click', () => {
+            let randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            element.style.color = randomColor;
+            element.style.backgroundColor = lightenColor(randomColor, 40);
+            element.style.borderColor = randomColor;
+            element.textContent = `Random color: ${randomColor}`;
+        });
+        
+        // Reset to original
+        resetBtn.addEventListener('click', () => {
+            element.style.color = originalStyles.color;
+            element.style.backgroundColor = originalStyles.backgroundColor;
+            element.style.borderColor = originalStyles.borderColor;
+            element.textContent = "Hello World!";
+        });
+        
+        // Helper function to lighten colors
+        function lightenColor(color, percent) {
+            let num = parseInt(color.replace("#", ""), 16);
+            let amt = Math.round(2.55 * percent);
+            let R = (num >> 16) + amt;
+            let G = (num >> 8 & 0x00FF) + amt;
+            let B = (num & 0x0000FF) + amt;
+            return `#${(
+                0x1000000 +
+                (R < 255 ? (R < 1 ? 0 : R) : 255) * 0x10000 +
+                (G < 255 ? (G < 1 ? 0 : G) : 255) * 0x100 +
+                (B < 255 ? (B < 1 ? 0 : B) : 255)
+            )
+            .toString(16)
+            .slice(1)}`;
+        }
+    </script>
+</body>
+</html>
