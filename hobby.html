@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hobbies App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        #hobbiesDisplay {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            min-height: 100px;
+            text-align: left;
+        }
+        
+        .hobby-item {
+            margin-bottom: 10px;
+            padding: 8px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Hobbies App</h1>
+    <p>Click the button below to see my hobbies:</p>
+    
+    <button id="showHobbies">Show My Hobbies</button>
+    
+    <div id="hobbiesDisplay"></div>
+    
+    <script>
+        // This runs when the page loads (page load event)
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Page loaded successfully!");
+            
+            // Get references to our elements
+            const showButton = document.getElementById('showHobbies');
+            const hobbiesDisplay = document.getElementById('hobbiesDisplay');
+            
+            // Define my hobbies
+            const myHobbies = [
+                "Reading science fiction books",
+                "Playing the guitar",
+                "Hiking in nature",
+                "Photography",
+                "Coding side projects"
+            ];
+            
+            // This runs when the button is clicked (click event)
+            showButton.addEventListener('click', function() {
+                // Clear previous content
+                hobbiesDisplay.innerHTML = '<h3>My Hobbies:</h3>';
+                
+                // Add each hobby to the display
+                myHobbies.forEach(function(hobby) {
+                    const hobbyElement = document.createElement('div');
+                    hobbyElement.className = 'hobby-item';
+                    hobbyElement.textContent = hobby;
+                    hobbiesDisplay.appendChild(hobbyElement);
+                });
+                
+                // Disable the button after clicking
+                showButton.disabled = true;
+                showButton.textContent = "Hobbies Shown!";
+            });
+        });
+    </script>
+</body>
+</html>
