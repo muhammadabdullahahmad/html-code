@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TESTING</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+            margin: 0;
+            padding: 0;
+        }
+
+        .topnav {
+            background-color: #00bcd4;
+            text-align: center;
+            padding: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .topnav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .topnav a:hover {
+            color: #004d40;
+        }
+
+        .slideshow-container {
+            max-width: 800px;
+            position: relative;
+            margin: 40px auto;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: none;
+            width: 100%;
+        }
+
+        .caption {
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            bottom: 20px;
+            left: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            padding: 12px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 3px;
+            user-select: none;
+            transform: translateY(-50%);
+            transition: background-color 0.3s;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topnav">
+        <a href="js practice 1.html">Nav 1</a>
+        <a href="js practice.html">Nav 2</a>
+        <a href="to do list app.html">Nav 3</a>
+    </div>
+
+    <div class="slideshow-container">
+        <div class="slides">
+            <img src="images/nature.jpeg" alt="Nature" style="width:100%">
+            <div class="caption">Beautiful Nature</div>
+        </div>
+
+        <div class="slides">
+            <img src="images/Urban-Landscapes.jpg" alt="Urban Landscape" style="width:100%">
+            <div class="caption">Urban Landscape</div>
+        </div>
+
+        <div class="slides">
+            <img src="images/abdullah_cartoon.jpg" alt="Cartoon" style="width:100%">
+            <div class="caption">Cool Cartoon</div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        let slideTimer;
+
+        function showSlides(n) {
+            let i;
+            const slides = document.getElementsByClassName("slides");
+
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        function plusSlides(n) {
+            clearTimeout(slideTimer); // Stop auto when clicking
+            showSlides(slideIndex += n);
+            slideTimer = setTimeout(autoSlide, 4000); // Restart auto
+        }
+
+        function autoSlide() {
+            slideIndex++;
+            showSlides(slideIndex);
+            slideTimer = setTimeout(autoSlide, 4000);
+        }
+
+        // Start slideshow
+        showSlides(slideIndex);
+        autoSlide();
+    </script>
+
+</body>
+</html>
+ 
